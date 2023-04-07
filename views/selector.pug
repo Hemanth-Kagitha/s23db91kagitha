@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  -let results =["kite1.jpg","kite2.jpg","kite3.jpg","kite4.jpg","kite5.jpg"]
+  -for(var i=0;i<3; i++) {
+    -let randonnum = Math.floor(Math.random()*5)
+    img(src=`images/${results[randonnum]}`,height="300px",width="300px")
+  -}

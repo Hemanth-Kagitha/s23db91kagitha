@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  - let results = [{Kite_color:"Blue",Kite_length:"12m",Kite_cost:"$55", Kite_sides:"Equal"},{Kite_color:"Green",Kite_length:"19m",Kite_cost:"$100", Kite_sides:"Not Equal"},{Kite_color:"Red",Kite_length:"15m",Kite_cost:"$70", Kite_sides:"Equal"}]
+  div(class="container-fluid")
+    div(class="row")
+      each item,index in results
+        div(class="col-sm-2",onClick=`buy(${index})`)
+          p Color is #{item.Kite_color}
+          p Length is #{item.Kite_length}
+          p Cost is #{item.Kite_cost}
+          p Sides are #{item.Kite_sides}
+
+  //- Bonus Logic
+  script.
+    function buy(itr) {
+      itr = itr+1;
+      alert(`You Purchased Item ${itr}`);
+    }
