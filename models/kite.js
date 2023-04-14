@@ -5,5 +5,4 @@ const kiteSchema = mongoose.Schema({
     Kite_cost: String,
     Kite_sides: String
 })
-module.exports = mongoose.model("Kite",
-kiteSchema)
+module.exports = mongoose.model("Kite",kiteSchema)

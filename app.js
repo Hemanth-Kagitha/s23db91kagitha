@@ -23,7 +23,7 @@ db.once("open", function(){
 console.log("Connection to DB succeeded")});
 
 
-var Costume = require("./models/kite");
+var kite = require("./models/kite");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -31,7 +31,7 @@ var usersRouter = require('./routes/users');
 var kiteRouter = require('./routes/kite');
 var boardRouter = require('./routes/board');
 var selectorRouter = require('./routes/selector');
-const kite = require('./models/kite');
+var kite = require('./models/kite');
 var resourceRouter = require('./routes/resource');
 
 
