@@ -1,0 +1,43 @@
+extends layout
+block content
+ h1= title
+  - let Kiteid = toShow._id
+  - let Kite_color = toShow.Kite_color
+  - let Kite_length = toShow.Kite_length
+  - let Kite_cost = toShow.Kite_cost
+  - let Kite_sides = toShow.Kite_sides 
+  div.row(class='mb-2')
+   div.mr-1 ID is
+   div #{Kiteid}
+  - let actionid = "/resource/kite/" + Kiteid
+  form(id='KiteForm', action= actionid, method="PUT")
+   div.form-group
+     label.KiteAttr(for='Kite_color') Kite color
+     input#Kite_color(type='text', name='Kite_color', value= Kite_color )
+   div.form-group
+     label.KiteAttr(for='Kite_length') Kite length
+     input#Kite_length(type='text', name='Kite_length', value= Kite_length )
+   div.form-group
+     label.KiteAttr(for='Kite_cost') Kite cost
+     input#Kite_cost(type='number', name='Kite_cost', value= Kite_cost )
+   div.form-group
+     label.KiteAttr(for='Kite_sound') Kite sound
+     input#Kite_sound(type='text', name='Kite_sound', value= Kite_sound )
+   input(type="submit")
+  script.
+   document.forms['KiteForm'].addEventListener('submit', (event) => {
+    event.preventDefault();
+    // TODO do something here to show user that form is being submitted
+    fetch(event.target.action, {
+     method: 'PUT',
+     body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+    }).then((resp) => {
+     return resp.json(); // or resp.text() or whatever the server sends
+    }).then((body) => {
+     alert("Update succeded")
+     // TODO handle body
+    }).catch((error) => {
+     // TODO handle error
+     alert("Update failed " + error )
+    });
+   });
