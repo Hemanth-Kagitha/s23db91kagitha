@@ -1,6 +1,9 @@
 extends layout
 block content
  h1= title
+ if (toShow == null)
+  h2 No instance to delete
+ else
   - let Kiteid = toShow._id
   - let Kite_color = toShow.Kite_color
   - let Kite_length = toShow.Kite_length
