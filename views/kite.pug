@@ -6,11 +6,18 @@ block content
     div(class="container-fluid")
     div(class="row")
       each item,index in kite
+       - let destination = `dispatch(\"/kite/update?id=${item._id}\")`
         div(class="col-sm-2",onClick=`buy(${index})`)
           p Color is #{item.Kite_color}
           p Length is #{item.Kite_length}
           p Cost is #{item.Kite_cost}
           p Sides are #{item.Kite_sides}
+
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
+  script.
+   function dispatch(path){
+    window.location.href=path
+   }
 
   //- Bonus Logic
   script.
