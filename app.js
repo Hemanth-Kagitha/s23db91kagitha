@@ -35,6 +35,8 @@ var kite = require('./models/kite');
 var resourceRouter = require('./routes/resource');
 
 
+//var express = require('express');
+
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 

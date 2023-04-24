@@ -1,18 +1,11 @@
 extends layout
-
 block content
-  h1= title
-  p Hemanth Sai Kagitha's S23wb91kagitha #{title}
-
-  button(type="button", class="btn btn-secondary", onclick="doReduce()") Press Me
-
-  div(id = "reduce") Reduce the value
-  a(href="kite") LINK
-  script.
-      count = 20
-      change  = -1
-      function doReduce(){
-          count += change;
-          change -= 1;
-          document.getElementById('reduce').innerHTML = `Count ${count} Change ${change}`;
-      }
+ if (!user)
+  a(href="/login") Login
+  br
+  a(href="/register") Register
+ if (user)
+  p You are currently logged in as #{user.username}
+  a(href="/shoes") Take me to Shoes
+  br
+  a(href="/logout") Logout
