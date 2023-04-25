@@ -2,24 +2,21 @@ extends layout
 
 block content
  h1= title
- if (toShow == null)
-  h2 No instance to delete
- else
-  form(id='KiteForm', action="/resource/Kite", method="POST")
-   div.form-group
-     label.KiteAttr(for='Kite_color') Kite color
-     input#Kite_color(type='text', name='Kite_color')
-   div.form-group
-     label.KiteAttr(for='Kite_length') Kite length
-     input#Kite_length(type='text', name='Kite_length')
-   div.form-group
-     label.KiteAttr(for='Kite_cost') Kite cost
-     input#Kite_cost(type='number', name='Kite_cost')
-   div.form-group
-     label.KiteAttr(for='Kite_sides') Kite sides
-     input#Kite_sides(type='text', name='Kite_sides')
+ form(id='KiteForm', action="/resource/Kite", method="POST")
+  div.form-group
+    label.KiteAttr(for='Kite_color') Kite color
+    input#Kite_color(type='text', name='Kite_color')
+  div.form-group
+    label.KiteAttr(for='Kite_length') Kite length
+    input#Kite_length(type='text', name='Kite_length')
+  div.form-group
+    label.KiteAttr(for='Kite_cost') Kite cost
+    input#Kite_cost(type='number', name='Kite_cost')
+  div.form-group
+   label.KiteAttr(for='Kite_sides') Kite sides
+   input#Kite_sides(type='text', name='Kite_sides')
+   br
    input(type="submit")
-
   script.
    document.forms['KiteForm'].addEventListener('submit', (event) => {
     event.preventDefault();

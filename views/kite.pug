@@ -3,8 +3,10 @@ extends layout
 block content
   h1= title
   - let kite = results
+    button.btn( class="btn-success ml-1", onclick= `dispatch(\"/kite/create?\")`) Create
     div(class="container-fluid")
     div(class="row")
+    
       each item,index in kite
        - let destination = `dispatch(\"/kite/update?id=${item._id}\")`
         div(class="col-sm-2",onClick=`buy(${index})`)
@@ -12,8 +14,9 @@ block content
           p Length is #{item.Kite_length}
           p Cost is #{item.Kite_cost}
           p Sides are #{item.Kite_sides}
-
-        button.btn( class="btn-primary ml-1", onclick= destination) Update
+          button.btn( class="btn-primary ml-1", onclick= destination) Update
+          button.btn( class="btn-warning ml-1", onclick= `dispatch(\"/kite/detail?id=${item._id}\")`) Detail
+          button.btn( class="btn-danger ml-1", onclick= `dispatch(\"/kite/delete?id=${item._id}\")`) Delete
   script.
    function dispatch(path){
     window.location.href=path
@@ -25,3 +28,4 @@ block content
       itr = itr+1;
       alert(`You Purchased Item ${itr}`);
     }
+
